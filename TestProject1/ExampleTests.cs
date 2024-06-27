@@ -30,7 +30,7 @@ namespace TestProject1
 
 
         [Fact]
-        public void Test1()
+        public void Test0001()
         {
             Assert.Equal(Solution1.TwoSum(new int[] { 2,7,11,15 }, 9), new int[] { 0, 1 });
             Assert.Equal( Solution1.TwoSum(new int[]{ 2,3,4 }, 6), new int[]{ 0,2});
@@ -89,9 +89,10 @@ namespace TestProject1
 
         }
 
-        public class Solution9
+        [Fact]
+        public void Test0009()
         {
-            public bool IsPalindrome(int x)
+            bool IsPalindrome(int x)
             {
                 var s = x.ToString();
                 //var r = s.Reverse();
@@ -105,15 +106,24 @@ namespace TestProject1
 
                 return (res == s);
             }
+
+
+            Assert.False(IsPalindrome(1234));
+            Assert.True(IsPalindrome(12221));
+            Assert.False(IsPalindrome(-12221));
         }
 
         [Fact]
-        public void Test9()
+        public void Test0058()
         {
-            var sut = new Solution9();
-            Assert.False(sut.IsPalindrome(1234));
-            Assert.True(sut.IsPalindrome(12221));
-            Assert.False(sut.IsPalindrome(-12221));
+            int LengthOfLastWord(string s)
+            {
+                var things = s.Trim().Split(' ');
+                var last = things[things.Count() -1];
+                return last.Length;
+            }
+
+            Assert.Equal(7, LengthOfLastWord("the cat stopped "));
         }
 
     }
