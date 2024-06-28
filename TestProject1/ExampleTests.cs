@@ -126,5 +126,37 @@ namespace TestProject1
             Assert.Equal(7, LengthOfLastWord("the cat stopped "));
         }
 
+        [Fact]
+        public void Test0028()
+        {
+            int StrStr(string haystack, string needle)
+            {
+                if (needle.Length > haystack.Length)
+                {
+                    return -1;
+                }
+
+                for (int i = 0; i <= haystack.Length - needle.Length; i++)
+                {
+                    if (haystack.Substring(i, needle.Length) == needle)
+                    {
+                        return i;
+                    }
+                }
+
+                return -1;
+            }
+
+            Assert.Equal(0, StrStr("sadbutsad", "sad"));
+            Assert.Equal(-1, StrStr("leetcode", "leeto"));
+            Assert.Equal(1, StrStr("leetcode", "eet"));
+            Assert.Equal(0, StrStr("leetcode", "leetcode"));
+            Assert.Equal(-1, StrStr("leetcode", "xxxeetcode"));
+
+
+        }
+
+
+
     }
 }
